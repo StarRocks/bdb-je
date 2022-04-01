@@ -497,7 +497,6 @@ public class Replay {
         final byte entryType = wireRecord.getEntryType();
 
         lastReplayedVLSN = wireRecord.getVLSN();
-        repImpl.getVLSNIndex().setReplicaLatestVLSNSeq(lastReplayedVLSN.getSequence());
 
         try {
             final long txnId = repTxn.getId();

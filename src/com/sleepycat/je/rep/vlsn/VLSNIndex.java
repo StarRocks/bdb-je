@@ -479,7 +479,7 @@ public class VLSNIndex {
 
         putWaitVLSN = null;
         nextVLSNCounter = null;
-        replicaLatestVLSNSeq = VLSN.NULL_VLSN_SEQUENCE;
+        replicaLatestVLSNSeq = VLSN.UNINITIALIZED_VLSN_SEQUENCE;
     }
 
     /*
@@ -2080,6 +2080,12 @@ public class VLSNIndex {
      * feeder waiting contract (VLSN N)
      */
     public void awaitConsistency() {
+
+        /* VLSNIndex is not initialized and in use yet, no need to wait. */
+        if (nextVLSNCounter == null && replicaLatestVLSNSeq == VLSN.NULL_VLSN_SEQUENCE) {
+            return;
+        }
+
         VLSN vlsnAllocatedBeforeCkpt = null;
         VLSN endOfRangePlusOne;
         while (true) {
