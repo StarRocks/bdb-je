@@ -1,16 +1,1 @@
-Oracle: Berkeley DB, Java Edition 7.5.11: 2017-10-31 09:36:36 UTC
-
-This is Berkeley DB, Java Edition, version 7.5.11 from
-Oracle.  To view the release and installation documentation, load
-the distribution file docs/index.html into your web browser.
-
-The files in the src dir are copied from maven source from
-```xml
-<dependency>
-   <groupId>com.sleepycat</groupId>
-   <artifactId>je</artifactId>
-   <version>7.3.7</version>
-</dependency>
-```
-And the other files are copied from https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html, but the version is 7.5.11.
-So you may see some 7.5.11 info in these files. But the src is based on the 7.3.7.
+Based on Oracle: Berkeley DB, Java Edition 7.3.7
